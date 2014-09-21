@@ -39,7 +39,7 @@ public class LoggerUtil
 		{
 			screenshotDirectoryStructure.mkdirs();
 		}
-		if ( System.getProperty(IConstants.HTML_LOGGING,"false").equalsIgnoreCase("true")  )
+		if ( System.getProperty(IConstants.HTML_LOGGING,"true").equalsIgnoreCase("true")  )
 		{
 			LOG_FILE =	dirStructure.getAbsolutePath() + "/"+ System.getProperty(IConstants.LOG_FILE, fileName ) +".html";
 		}
@@ -73,11 +73,12 @@ public class LoggerUtil
 	 */
 	public synchronized static void initialize()
 	{
-		if (  System.getProperty(IConstants.HTML_LOGGING,"false").equalsIgnoreCase("true") && ! initialized )
+		if (  System.getProperty(IConstants.HTML_LOGGING,"true").equalsIgnoreCase("true") && ! initialized )
 		{
 			simpleLog("<html>", false);
 			simpleLog("<body>", false);
-			if ( ( !imageCroppingBlocks ) && ( System.getProperty(IConstants.BROWSER).equalsIgnoreCase("ff")  ||  System.getProperty(IConstants.BROWSER).equalsIgnoreCase("firefox") ) )
+			if ( ( !imageCroppingBlocks ) && ( System.getProperty(IConstants.BROWSER, "").equalsIgnoreCase("ff") 
+						||  System.getProperty(IConstants.BROWSER, "").equalsIgnoreCase("firefox") ) )
 			{
 				imageCroppingBlocks();
 			}
@@ -187,7 +188,7 @@ public class LoggerUtil
 		String property = System.getProperty(IConstants.LOG_LEVEL);
 		if ( null != property && ( property.contains("DEBUG") || property.contains("INFO")  )  )
 		{
-			if ( System.getProperty(IConstants.HTML_LOGGING,"false").equalsIgnoreCase("true") )
+			if ( System.getProperty(IConstants.HTML_LOGGING,"true").equalsIgnoreCase("true") )
 			{
 				simpleLog("<font color='blue'>", false);
 				log("[INFO] " + log, false);
@@ -226,7 +227,7 @@ public class LoggerUtil
 		String property = System.getProperty(IConstants.LOG_LEVEL);
 		if ( null != property && ( property.contains("DEBUG") || property.contains("INFO") || property.contains("WARNING")  )  )
 		{
-			if ( System.getProperty(IConstants.HTML_LOGGING,"false").equalsIgnoreCase("true") )
+			if ( System.getProperty(IConstants.HTML_LOGGING,"true").equalsIgnoreCase("true") )
 			{
 				simpleLog("<font color='orange'>", false);
 				log("[WARNING] " + log, false);
@@ -251,12 +252,12 @@ public class LoggerUtil
 		//  errors will always be logged
 		String[] logs = log.split("\n");
 		
-		if ( System.getProperty(IConstants.HTML_LOGGING,"false").equalsIgnoreCase("true") )
+		if ( System.getProperty(IConstants.HTML_LOGGING,"true").equalsIgnoreCase("true") )
 		{
 			simpleLog("<font color='red'>", false);
 			for ( String s : logs )
 			{
-				if ( System.getProperty(IConstants.HTML_LOGGING,"false").equalsIgnoreCase("true") )
+				if ( System.getProperty(IConstants.HTML_LOGGING,"true").equalsIgnoreCase("true") )
 				{
 					log("[ERROR] " + s, false);
 				}
@@ -330,7 +331,7 @@ public class LoggerUtil
 	{
 		try {
 			fileWriter.append(log);
-			if ( lineBreakRequired && System.getProperty(IConstants.HTML_LOGGING,"false").equalsIgnoreCase("true") )
+			if ( lineBreakRequired && System.getProperty(IConstants.HTML_LOGGING,"true").equalsIgnoreCase("true") )
 			{
 				fileWriter.append("\t\t\t<br>");
 			}

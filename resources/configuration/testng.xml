@@ -2,7 +2,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="DolphinTests" parallel="tests" thread-count="10" >
 	<parameter name="configFile" value="resources/configuration/config.properties" />
-	<parameter name="htmlLogging" value="true"/>
 	
 	<test verbose="5" name="GoogleSRP" annotations="JDK" parallel="classes" thread-count="6" >
 		<parameter name="baseUrl" value="http://google.com"/>  

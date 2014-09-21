@@ -351,17 +351,17 @@ public abstract class WebDriverCommonTest extends CommonTest
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				String screenshotFilePath = null;;
-				if ( computername.contains("hudson") || computername.contains("ci") 
-						|| computername.contains("jenkin") || computername.contains("factory") 
-							|| computername.contains(".corp.") || computername.contains(".yahoo.com"))
-				{
-					screenshotFilePath = "./" + LoggerUtil.screenshotDirName + "/" + testCaseName+"_"+query + ".png" ;
-				}
-				else
-				{
-					screenshotFilePath = "file:///" + LoggerUtil.screenshotDirName+ "/" + testCaseName+"_"+query + ".png";
-				}
+				String screenshotFilePath = "./" + LoggerUtil.screenshotDirName + "/" + testCaseName+"_"+query + ".png" ;
+//				if ( computername.contains("hudson") || computername.contains("ci") 
+//						|| computername.contains("jenkin") || computername.contains("factory") 
+//							|| computername.contains(".corp.") || computername.contains(".yahoo.com"))
+//				{
+//					screenshotFilePath = "./" + LoggerUtil.screenshotDirName + "/" + testCaseName+"_"+query + ".png" ;
+//				}
+//				else
+//				{
+//					screenshotFilePath = "file:///" + LoggerUtil.screenshotDirName+ "/" + testCaseName+"_"+query + ".png";
+//				}
 				simplyLogAscreenshotURL(screenshotFilePath);
 			} catch (IOException e) {
 				e.printStackTrace();
