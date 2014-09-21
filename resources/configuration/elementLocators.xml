@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages>
+	<page name='GoogleSRP'>
+		<section name='header'>
+	        <uielements>
+	        	<element name="SearchBox">
+	          		<CSSLocator>input#gbqfq</CSSLocator>
+	          		<XPathLocator>//input[@id="gbqfq"]</XPathLocator>
+	          		<uispec name="background-color">rgba(0, 0, 0, 0)</uispec>
+	          		<uispec name="font-size">16px</uispec>
+	          	</element>
+			</uielements>
+		</section>
+    </page>
+</pages>

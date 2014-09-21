@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+
+<head>
+<title>Dolphin Automation results</title>
+<style type="text/css">
+table caption,table.info_table,table.param,table.passed,table.failed {margin-bottom:10px;border:1px solid #000099;border-collapse:collapse;empty-cells:show;}
+table.info_table td,table.info_table th,table.param td,table.param th,table.passed td,table.passed th,table.failed td,table.failed th {
+border:1px solid #000099;padding:.25em .5em .25em .5em
+}
+table.param th {vertical-align:bottom}
+td.numi,th.numi,td.numi_attn {
+text-align:right
+}
+tr.total td {font-weight:bold}
+table caption {
+text-align:center;font-weight:bold;
+}
+table.passed tr.stripe td,table tr.passedodd td {background-color: #00AA00;}
+table.passed td,table tr.passedeven td {background-color: #33FF33;}
+table.passed tr.stripe td,table tr.skippedodd td {background-color: #cccccc;}
+table.passed td,table tr.skippedodd td {background-color: #dddddd;}
+table.failed tr.stripe td,table tr.failedodd td,table.param td.numi_attn {background-color: #FF3333;}
+table.failed td,table tr.failedeven td,table.param tr.stripe td.numi_attn {background-color: #DD0000;}
+tr.stripe td,tr.stripe th {background-color: #E6EBF9;}
+p.totop {font-size:85%;text-align:center;border-bottom:2px black solid}
+div.shootout {padding:2em;border:3px #4854A8 solid}
+</style>
+  <script language="javascript"> 
+function toggle() {
+	var ele = document.getElementById("toggleText");
+	var text = document.getElementById("displayText");
+	if(ele.style.display == "block") {
+    		ele.style.display = "none";
+		text.innerHTML = "show";
+  	}
+	else {
+		ele.style.display = "block";
+		text.innerHTML = "hide";
+	}
+} 
+</script>
+</head>
+
+
+<body>
+
+<h1>Dolphin Automation results #${buildNumber}</h1>
+
+<h4>Env : ${baseUrl}</h4>
+<table border="2" cellspacing="0" cellpadding="2" class="param">
+ <tr>
+   <th colspan="4" bgcolor="white">Run results for ${baseUrl}_${bucket} </th>
+ </tr>
+ <tr>
+    <td>Total failed</td><td bgcolor="red">${failed}</td>
+    <td>failed test methods</td><td bgcolor="red"><b><font size="5">${failedMethods}</b></font></td>
+  </tr>
+ <tr>
+   <td>Total Passed</td><td bgcolor="green">${passed}</td>
+   <td>Passed test methods</td><td bgcolor="green">${passedMethods}</td>
+ </tr>
+<tr>
+   <td>Total Skipped</td><td bgcolor="yellow">${skipped}</td>
+   <td>Skipped test methods</td><td bgcolor="yellow">${skippedMethods}</td>
+ </tr>
+<tr>
+   <td>Total Executed</td><td>${total}</td>
+   <td>Executed test methods</td><td>${totalMethodCount}</td>
+ </tr>
+<tr>
+   <td>Overall Failure Percentage</td><td>${OverallFailurePercentage}%</td>
+   <td>Test Method Failure Percentage</td><td><b><font color="red" size="4">${MethodFailurePercentage}%</font></b></td>
+</tr>
+
+</table>
+<br/>
+
+<br/>
+${RedDeltaMethods}
+<br/>
+${StagnantFailures}
+<br/>
+${FailureBasedReport}
+<br/> 
+${GreenDeltaMethods}
+<br/><br/>
+
+<table border="2" cellspacing="0" cellpadding="2" class="param">
+<tr>
+  <th colspan="2" bgcolor="white">Run Configuration and Details</th>
+ </tr>
+<tr>
+  <td>Environment</td> <td><a href="${baseUrl}">${baseUrl}</a></td>
+</tr>
+<tr>
+  <td>Included run groups</td> <td>${IncludedGroups}</td>
+</tr>
+<tr>
+  <td>Excluded run groups</td> <td>${ExcludedGroups}</td>
+</tr>
+<tr>
+	<td>Changes In this Build</td>
+	<td><a href="${buildURL}/changes">CodeChangesInThisBuild</a></td>
+</tr>
+
+</table>
+
+<br>For analysis, logs and screenshots : </br>
+<a href="${buildURL}artifact/Reports/testLog.html">Logs</a>
+<br>TestNG Report</br>
+<a href="${buildURL}artifact/target/surefire-reports/emailable-report.html">emailable-report</a>
+<br/>
+<br>Trigger automation</br>
+<a href="${buildURL}../build?token=myToken">Trigger</a>
+<br/>
+</p>
+
+<p>
+ <br>Thanks</br>
+ <a href="mailto:basavaraj1985@gmail.com?Subject=Suggested%20Improvements">
+ <b>
+Basavaraj</b></a></br>
+</p>
+
+</body>
+</html>
