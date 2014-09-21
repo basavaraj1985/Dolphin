@@ -1,6 +1,20 @@
 
 <p>
 Features: <br>
+
+Multithreaded runs with the ability of running each thread/test on different env/configuration.
+Layered configuration; i.e configuraton could be overrided by runtime parameter, testng parameter. 
+Easy OO API's.
+UI Specification validation automated, with no test code requirement. i.e verify all your css/style attributes of elements by configuration and invoking a method.
+UI Elements location strategy insulated from test code. i.e. you could provide CSS or XPATH; and mix and match as per convenience. Test code doesnt depend on locator strategy.
+Default data provider available with parametrizable filenames; i.e. could be driven from configuration.
+HTML logging, Smart Delta and failure based reporting to reduce automation analysis time. HTML logging enables to see screenshots embedded, errors in red and more styling.
+EnvRetryAnalyser : if env under test goes down, your tests will wait upto configurable time before failing.
+JS error are caught and reported automatically (for firefox browser only).
+Google Fighting Layout framework is integrated, could be enabled with flag fightLayoutBugs=true.
+And much more..
+
+
 1. On iOSSimulator/Android emulator/real devices automation run support - no code change required. Need to work on provisioning profiles for ios. <br>
 2. Multi threaded - parallel execution - so its faster. <br>
 3. Automation framework is Data driven, randomness enabled, easily configurable. <br>
