@@ -1,12 +1,14 @@
 package com.basava.smart.framework.lib.common;
 
 import java.io.BufferedWriter;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
 import com.basava.smart.framework.IConstants;
 
+import static org.apache.commons.lang.StringEscapeUtils.escapeHtml;
 /**
  * @author Basavaraj M
  *
@@ -138,6 +140,7 @@ public class LoggerUtil
 	{
 		String timeStamp = Util.now();
 		log = timeStamp + " - " + Thread.currentThread().getName() + " " +  log;
+		log = escapeHtml(log);
 		simpleLog("<a id=\""+tag+"\" >" + log + " </a>");
 	}
 	
@@ -149,6 +152,7 @@ public class LoggerUtil
 	{
 		String timeStamp = Util.now();
 		log = timeStamp + " - " + Thread.currentThread().getName() + " " +  log;
+		log = escapeHtml(log);
 		simpleLog(log);
 	}
 	
@@ -160,6 +164,7 @@ public class LoggerUtil
 	{
 		String timeStamp = Util.now();
 		log = timeStamp + " - " + Thread.currentThread().getName() + " " +  log;
+		log = escapeHtml(log);
 		simpleLog(log, lineBreakRequired);
 	}
 	
@@ -174,6 +179,7 @@ public class LoggerUtil
 		String property = System.getProperty( IConstants.LOG_LEVEL);
 		if ( null != property && ( property.contains("DEBUG") || property.contains("INFO")  )   )
 		{
+			log = escapeHtml(log);
 			log("[INFO] " + log);
 		}
 	}
@@ -191,6 +197,7 @@ public class LoggerUtil
 			if ( System.getProperty(IConstants.HTML_LOGGING,"true").equalsIgnoreCase("true") )
 			{
 				simpleLog("<font color='blue'>", false);
+				log = escapeHtml(log);
 				log("[INFO] " + log, false);
 				simpleLog("</font>", false);
 				simpleLog("",true);
@@ -213,6 +220,7 @@ public class LoggerUtil
 		String property = System.getProperty(IConstants.LOG_LEVEL);
 		if ( null != property && ( property.contains("DEBUG")  )  )
 		{
+			log = escapeHtml(log);
 			log("[DEBUG] " + log);
 		}
 	}
@@ -227,6 +235,7 @@ public class LoggerUtil
 		String property = System.getProperty(IConstants.LOG_LEVEL);
 		if ( null != property && ( property.contains("DEBUG") || property.contains("INFO") || property.contains("WARNING")  )  )
 		{
+			log = escapeHtml(log);
 			if ( System.getProperty(IConstants.HTML_LOGGING,"true").equalsIgnoreCase("true") )
 			{
 				simpleLog("<font color='orange'>", false);
@@ -250,6 +259,7 @@ public class LoggerUtil
 	public static synchronized  void logERROR(String log)
 	{
 		//  errors will always be logged
+		log = escapeHtml(log);
 		String[] logs = log.split("\n");
 		
 		if ( System.getProperty(IConstants.HTML_LOGGING,"true").equalsIgnoreCase("true") )
@@ -301,6 +311,7 @@ public class LoggerUtil
 	 */
 	public static synchronized void logALink(String message, String url)
 	{
+		message = escapeHtml(message);
 		log("<a href=\""+ url + "\" "+ "title=\""+ url + "\"" +" target=\"_blank\">" + message + "</a>", true);
 	}
 	
