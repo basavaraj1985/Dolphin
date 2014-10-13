@@ -323,10 +323,12 @@
 				<groupId>ch.fortysix</groupId>
 				<artifactId>maven-postman-plugin</artifactId>
 				<configuration>
+					<failonerror>false</failonerror>
 					<from>dolphin@yahoo-inc.com</from>
 					<subject>Dolphin Report #${BUILD_NUMBER} R∆: ${RedDeltaMethodCount} ${intl} env:${baseUrl}</subject>
 					<failonerror>false</failonerror>
-					<mailhost>smtp.mail.yahoo.com</mailhost>
+					<mailhost>smtp.gmail.com</mailhost>
+					<mailport>587</mailport>
 					<multipartSupported>true</multipartSupported>
 					<mailcontenttype>text/html</mailcontenttype>
 					<htmlMessageFile>target/surefire-reports/report.html</htmlMessageFile>
@@ -342,7 +344,6 @@
 							</includes>
 						</fileSet>
 					</fileSets>
-					<failonerror>false</failonerror>
 				</configuration>
 				<executions>
 					<execution>
