@@ -342,6 +342,7 @@
 							</includes>
 						</fileSet>
 					</fileSets>
+					<failonerror>false</failonerror>
 				</configuration>
 				<executions>
 					<execution>
