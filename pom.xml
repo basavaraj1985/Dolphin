@@ -120,6 +120,11 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity</artifactId>
+			<version>1.7</version>
+		</dependency>
 	</dependencies>
 
 	<properties>
@@ -324,8 +329,9 @@
 				<artifactId>maven-postman-plugin</artifactId>
 				<configuration>
 					<failonerror>false</failonerror>
-					<from>dolphin@yahoo-inc.com</from>
-					<subject>Dolphin Report #${BUILD_NUMBER} R∆: ${RedDeltaMethodCount} ${intl} env:${baseUrl}</subject>
+					<from>testerdolfin@gmail.com</from>
+					<!-- <subject>Dolphin Report #${BUILD_NUMBER} R∆: ${RedDeltaMethodCount} ${intl} env:${baseUrl}</subject> -->
+					<subject>Dolphin Report env:${baseUrl}</subject>
 					<failonerror>false</failonerror>
 					<mailhost>smtp.gmail.com</mailhost>
 					<mailport>465</mailport>
