@@ -329,6 +329,8 @@
 					<failonerror>false</failonerror>
 					<mailhost>smtp.gmail.com</mailhost>
 					<mailport>465</mailport>
+					<mailssl>true</mailssl>
+					<mailAltConfig>true</mailAltConfig>
 					<multipartSupported>true</multipartSupported>
 					<mailcontenttype>text/html</mailcontenttype>
 					<htmlMessageFile>target/surefire-reports/report.html</htmlMessageFile>
