@@ -21,8 +21,6 @@ ehthumbs.db
 Thumbs.db
 
 
-src/sampleTests/GoogleSearchTest.java
-
 test-output/xml/sampleTests.GoogleSearchTest_results.xml
 
 test-output/testng-results.xml
