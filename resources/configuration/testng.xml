@@ -8,7 +8,7 @@
 		<parameter name="locatorFile" value="resources/configuration/elementLocators.xml" />
 		<parameter name="intl" value="us"/>
 		<parameter name="bucket" value="NA"/>
-		<parameter name="browser" value="chrome"/>		<!-- supported browsers: chrome, ff, remote, selastic, safari(no UA), -->
+		<parameter name="browser" value="phantom"/>		<!-- supported browsers: chrome, ff, remote,, safari(no UA), -->
 		<groups>
       		<run>
       			<include name="frame" />
@@ -32,7 +32,7 @@
 		   
 		<parameter name="intl" value="us"/>
 		<parameter name="bucket" value="NA"/>
-		<parameter name="browser" value="ff"/>		<!-- supported browsers: chrome, ff, remote, selastic, safari(no UA), -->
+		<parameter name="browser" value="ff"/>		<!-- supported browsers: chrome, ff, remote, safari(no UA), -->
 		<groups>
       		<run>
       			<include name="frame" />

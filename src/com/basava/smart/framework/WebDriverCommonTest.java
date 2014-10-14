@@ -28,6 +28,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestContext;
@@ -211,9 +212,9 @@ public abstract class WebDriverCommonTest extends CommonTest
 				{
 					capabilities.setCapability("phantomjs.page.settings.userAgent", configuration.getString(IConstants.USER_AGENT) );
 				}
-//				driver = new PhantomJSDriver();
+				driver = new PhantomJSDriver();
 				screenshotsEnabled = false;
-				throw new Exception("Not supporting PhantomJSDriver yet!");
+//				throw new Exception("Not supporting PhantomJSDriver yet!");
 				/*
 				 * To do:
 				 * user agent setting
