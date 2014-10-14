@@ -2,8 +2,8 @@ package sampleTests;
 
 import org.testng.annotations.Test;
 
-import com.basava.framework.testng.reporters.EnvAwareRetryAnalyzer;
-import com.basava.smart.framework.WebDriverCommonTest;
+import com.javasbar.framework.testng.reporters.EnvAwareRetryAnalyzer;
+import com.javasbar.smart.framework.WebDriverCommonTest;
 
 import static org.testng.Assert.assertTrue;
 

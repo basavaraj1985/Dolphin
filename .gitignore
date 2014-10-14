@@ -2,6 +2,7 @@
 .class
 target/*
 Reports/*
+*.log
 
 # Compiled Source #
 .class

@@ -30,8 +30,9 @@
 	</test>
 	
 	<listeners>
-		<listener class-name="com.basava.smart.framework.testng.reporters.SmartReporter" />
-		<listener class-name="com.basava.smart.framework.testng.reporters.EmailableReporter" />
+		<listener class-name="com.javasbar.smart.framework.testng.reporters.SmartReporter" />
+		<listener class-name="com.javasbar.smart.framework.testng.reporters.EmailableReporter" />
+		<listener class-name="com.javasbar.framework.testng.reporters.ProgressReporter" />
 		<listener class-name="org.uncommons.reportng.HTMLReporter" />
 		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
 	</listeners> 
