@@ -333,6 +333,8 @@
 					<mailAltConfig>true</mailAltConfig>
 					<multipartSupported>true</multipartSupported>
 					<mailcontenttype>text/html</mailcontenttype>
+					<mailuser>testerdolfin@gmail.com</mailuser>
+					<!-- <mailpassword></mailpassword> -->
 					<htmlMessageFile>target/surefire-reports/report.html</htmlMessageFile>
 					<failonerror>false</failonerror>
 					<receivers>
