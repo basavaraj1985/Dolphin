@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/basavaraj1985/Dolphin.svg?branch=master)](https://travis-ci.org/basavaraj1985/Dolphin.svg?branch=master)
+
 #Features: 
 
 - **Multithreaded** runs with the ability of running _each thread/test on different env/configuration._ 
