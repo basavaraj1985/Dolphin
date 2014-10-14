@@ -334,7 +334,7 @@
 					<multipartSupported>true</multipartSupported>
 					<mailcontenttype>text/html</mailcontenttype>
 					<mailuser>testerdolfin@gmail.com</mailuser>
-					<!-- <mailpassword></mailpassword> -->
+					<mailpassword>testerdolfin123</mailpassword>
 					<htmlMessageFile>target/surefire-reports/report.html</htmlMessageFile>
 					<failonerror>false</failonerror>
 					<receivers>
