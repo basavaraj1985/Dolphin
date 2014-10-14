@@ -25,7 +25,11 @@ public class EnvAwareRetryAnalyzer implements IRetryAnalyzer , ITestNGListener
 		System.out.println("@EnvAwareRetryAnalyzer retry");
 		if ( ! testResult.isSuccess() && ( retryCount++ < maxRetryCount ))
 		{
-			String url = System.getProperty("baseUrl", "http://qa.search.yahoo.com");
+			String url = (String) testResult.getTestContext().getAttribute("baseUrl");
+			if ( null == url ) 
+			{
+				System.getProperty("baseUrl", "http://google.com");
+			}
 			if ( ! NetworkUtil.ping( url, 1000) )
 			{
 				System.out.println("@EnvAwareRetryAnalyzer... retrying failed testcase - " + testResult.getName() );
