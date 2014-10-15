@@ -21,16 +21,28 @@
     ```
 
 - **UI Elements location strategy insulated from test code**. i.e. you could provide CSS or XPATH; and mix and match as per convenience. Test code doesnt depend on locator strategy. 
+  ```
+  assertTrue ( actions.isElementPresent("GoogleSRP", "SearchBox"), 
+						"Search box is missing in search result page!");
+  actions.verifyUISpecForElement("GoogleSRP", "SearchBox");
+	
+  ```
 
 - Default data provider available with parametrizable filenames; i.e. could be driven from configuration. 
+  
 
 - **HTML logging, Smart Delta and failure based reporting** to reduce automation analysis time. HTML logging enables to see **screenshots embedded**, errors in red and more styling. 
 
 - **EnvAwareRetryAnalyser** : if env under test goes down, your _tests will wait upto configurable time before failing_. 
 
-- **JS error are caught and reported automatically** (for firefox browser only). 
+- **JS error are caught and reported automatically** (for firefox browser only), JSErrorCollector is used, 
+  see @ https://github.com/mguillem/JSErrorCollector. 
 
-- **Google Fighting Layout framework** is integrated, could be enabled with flag fightLayoutBugs=true. 
+- **Google Fighting Layout framework** is integrated, could be enabled with flag fightLayoutBugs. 
+  ```
+  fightLayoutBugs=true
+  ```
+  
 
 And much more.. 
 
