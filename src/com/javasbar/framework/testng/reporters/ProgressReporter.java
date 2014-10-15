@@ -38,11 +38,15 @@ public class ProgressReporter implements ITestListener
 	private VelocityContext context ;
 	private Template template =  null;
 	String pageTitle = "Test Progress page";
+	String refreshPage = 
+			"#if ($testsPending.size() > 0 )" +  
+		    "<meta http-equiv=\"refresh\" content=\"3\" >" + 
+			"#end";
 	String head = "<head>" +
 		     "<title>" + pageTitle + "</title>" +
 		        "<style type=\"text/css\">table caption,table.info_table,table.param,table.passed,table.failed {margin-bottom:10px;border:1px solid #000099;border-collapse:collapse;empty-cells:show;}table.info_table td,table.info_table th,table.param td,table.param th,table.passed td,table.passed th,table.failed td,table.failed th {border:1px solid #000099;padding:.25em .5em .25em .5em}table.param th {vertical-align:bottom}td.numi,th.numi,td.numi_attn {text-align:right}tr.total td {font-weight:bold}table caption {text-align:center;font-weight:bold;}table.passed tr.stripe td,table tr.passedodd td {background-color: #00AA00;}table.passed td,table tr.passedeven td {background-color: #33FF33;}table.passed tr.stripe td,table tr.skippedodd td {background-color: #cccccc;}table.passed td,table tr.skippedodd td {background-color: #dddddd;}table.failed tr.stripe td,table tr.failedodd td,table.param td.numi_attn {background-color: #FF3333;}table.failed td,table tr.failedeven td,table.param tr.stripe td.numi_attn {background-color: #DD0000;}tr.stripe td,tr.stripe th {background-color: #E6EBF9;}p.totop {font-size:85%;text-align:center;border-bottom:2px black solid}div.shootout {padding:2em;border:3px #4854A8 solid} body {background-color:lightpurple}</style>" +
 		        "<link rel=\"stylesheet\" type=\"text/css\" href=\"chrome-extension://lfjamigppmepikjlacjdpgjaiojdjhoj/css/menu.css\">" +
-		        "<meta http-equiv=\"refresh\" content=\"3\" >" +
+		        refreshPage +
 		    "</head>" ; 
 	String progressTable = 
 			"#if ($progressingTestMethods.size() > 0 )" +
