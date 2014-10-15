@@ -167,7 +167,7 @@
 					<testFailureIgnore>true</testFailureIgnore>
 					<argLine>-Xmx1024m</argLine>
 					<suiteXmlFiles>
-						<suiteXmlFile>resources/configuration/${testngFile}</suiteXmlFile>
+						<suiteXmlFile>resources/${testngFile}</suiteXmlFile>
 					</suiteXmlFiles>
 					<verbose>true</verbose>
 					<groups>${includeGroups}</groups>
