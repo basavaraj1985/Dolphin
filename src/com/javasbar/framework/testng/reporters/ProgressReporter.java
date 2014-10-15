@@ -349,5 +349,3 @@ public class ProgressReporter implements ITestListener
 		}
 	}
 }
-
-
