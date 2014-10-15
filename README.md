@@ -9,6 +9,14 @@
 - Easy OO API's. 
 
 - **UI Specification validation automated**, with as less test code as 2 lines requirement. i.e verify all your css/style attributes of elements by configuration and invoking a method. 
+    ```
+    <element name="SearchBox">
+	    <CSSLocator>input#gbqfq</CSSLocator>
+	    <XPathLocator>//input[@id="gbqfq"]</XPathLocator>
+	    <uispec name="background-color">rgba(0, 0, 0, 0)</uispec>
+	    <uispec name="font-size">16px</uispec>
+	 </element>
+    ```
 
 - **UI Elements location strategy insulated from test code**. i.e. you could provide CSS or XPATH; and mix and match as per convenience. Test code doesnt depend on locator strategy. 
 
