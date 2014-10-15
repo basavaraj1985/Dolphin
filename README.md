@@ -44,6 +44,13 @@
   ```
 - **Sample code**
   ```
+  import org.testng.annotations.Test;
+  
+  import com.javasbar.framework.testng.reporters.EnvAwareRetryAnalyzer;
+  import com.javasbar.smart.framework.WebDriverCommonTest;
+
+  import static org.testng.Assert.assertTrue;
+
   public class GoogleSearchTest extends WebDriverCommonTest 
   {
 	  @Test ( groups= {"smoke"},
