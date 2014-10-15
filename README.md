@@ -16,6 +16,7 @@
 	    <XPathLocator>//input[@id="gbqfq"]</XPathLocator>
 	    <uispec name="background-color">rgba(0, 0, 0, 0)</uispec>
 	    <uispec name="font-size">16px</uispec>
+	    <uispec name="anyCssAttribute">expectedValue</uispec>
 	 </element>
     ```
 
