@@ -10,6 +10,7 @@
 
 - **UI Specification validation automated**, with as less test code as 2 lines requirement. i.e verify all your css/style attributes of elements by configuration and invoking a method. 
     ```
+    example element locator section:
     <element name="SearchBox">
 	    <CSSLocator>input#gbqfq</CSSLocator>
 	    <XPathLocator>//input[@id="gbqfq"]</XPathLocator>
