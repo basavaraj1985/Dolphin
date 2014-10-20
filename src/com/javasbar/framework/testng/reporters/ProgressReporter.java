@@ -20,6 +20,10 @@ import org.testng.ITestListener;
 import org.testng.ITestNGMethod;
 import org.testng.ITestResult;
 
+/**
+ * @author Basavaraj M
+ *
+ */
 public class ProgressReporter implements ITestListener
 {
 	private String templateFile = "resources/progressTemplate1.html";
@@ -38,8 +42,9 @@ public class ProgressReporter implements ITestListener
 	private VelocityContext context ;
 	private Template template =  null;
 	String pageTitle = "Test Progress page";
+	static boolean lastUpdate = true; 
 	String refreshPage = 
-			"#if ($testsPending.size() > 0 )" +  
+			"#if ($testsPending.size() > 0 || $lastUpdate || $testsInProgress.size() > 0 )" +  
 		    "<meta http-equiv=\"refresh\" content=\"3\" >" + 
 			"#end";
 	String head = "<head>" +
@@ -301,6 +306,7 @@ public class ProgressReporter implements ITestListener
 		System.err.println("TEST finished : " + context.getName() );
 		testsCompleted.add(context.getName());
 		testsInProgress.remove(context.getName());
+		
 		totalActualTimeTaken = context.getEndDate().getTime() - context.getStartDate().getTime();
 		long timeSaved = timeTakenByTestMethods - totalActualTimeTaken ;
 		customMessage.replace(0, customMessage.length(), "");
@@ -308,6 +314,7 @@ public class ProgressReporter implements ITestListener
 							"<span> " + "Actual total time taken for run : " + totalActualTimeTaken/1000 + " seconds!" + "</span><br/>" +
 								"<span>" + "Time saved : " + timeSaved/1000 + " seconds OR " + timeSaved*100 / timeTakenByTestMethods + "%</span>" );
 		update();
+		lastUpdate = false;
 	}
 	
 	private String getTestMethodNameFromResult(ITestResult result)
