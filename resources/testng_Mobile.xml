@@ -5,18 +5,15 @@
 	<parameter name="locatorFile" value="resources/configuration/mobileElementLocators.xml" />
 	<parameter name="htmlLogging" value="true"/>
 	
-	<test verbose="5" name="LocalBusinessPage" annotations="JDK" parallel="classes" thread-count="6" >
-		<parameter name="baseUrl" value="https://local.yahoo.com"/>  
-		<parameter name="intl" value="us"/>
-		<parameter name="bucket" value="NA"/>
-		<parameter name="browser" value="selastic"/>		<!-- supported browsers: chrome, ff, remote, selastic, safari(no UA), -->
+	<test verbose="5" name="GoogleSRP" annotations="JDK" parallel="classes" thread-count="6" >
+		<parameter name="baseUrl" value="http://google.com"/>  
+		<parameter name="browser" value="phantom"/>		<!-- supported browsers: chrome, ff, remote, selastic, safari(no UA), -->
 		<parameter name="browserWidth" value="400"/>
 		<parameter name="browserHeight" value="750"/>
  		<parameter name="userAgent" value="Mozilla/5.0 (iPhone; CPU iPhone OS 5_0 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A334 Safari/7534.48.3"/>
 		
 		<groups>
       		<run>
-      			<include name="frame" />
 		 		<include name="smoke" />
 		 		<include name="functional" />
 		 		
@@ -31,8 +28,8 @@
 	
 	<listeners>
 		<listener class-name="com.javasbar.smart.framework.testng.reporters.SmartReporter" />
-		<listener class-name="com.javasbar.smart.framework.testng.reporters.EmailableReporter" />
 		<listener class-name="com.javasbar.framework.testng.reporters.ProgressReporter" />
+		<listener class-name="org.testng.reporters.EmailableReporter" />
 		<listener class-name="org.uncommons.reportng.HTMLReporter" />
 		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
 	</listeners> 

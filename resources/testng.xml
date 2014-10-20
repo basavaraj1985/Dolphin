@@ -6,12 +6,9 @@
 	<test verbose="5" name="GoogleSRP" annotations="JDK" parallel="classes" thread-count="6" >
 		<parameter name="baseUrl" value="http://google.com"/>  
 		<parameter name="locatorFile" value="resources/configuration/elementLocators.xml" />
-		<parameter name="intl" value="us"/>
-		<parameter name="bucket" value="NA"/>
 		<parameter name="browser" value="phantom"/>		<!-- supported browsers: chrome, ff, remote,, safari(no UA), -->
 		<groups>
       		<run>
-      			<include name="frame" />
 		 		<include name="smoke" />
 		 		<include name="functional" />
 		 		<exclude name="todo" />
@@ -30,27 +27,24 @@
 		<parameter name="browserWidth" value="390"/>
 		<parameter name="browserHeight" value="780" />
 		   
-		<parameter name="intl" value="us"/>
-		<parameter name="bucket" value="NA"/>
-		<parameter name="browser" value="ff"/>		supported browsers: chrome, ff, remote, safari(no UA),
+		<parameter name="browser" value="ff"/>	
 		<groups>
       		<run>
-      			<include name="frame" />
 		 		<include name="smoke" />
 		 		<include name="functional" />
 		 		<exclude name="todo" />
-		 		<exclude name="notForDesktop" />
+		 		<exclude name="notForMobile" />
       		</run>        
     	</groups>
     	<classes>
     		<class name="sampleTests.GoogleSearchTest"></class>
 		</classes>
-	</test> -->
-	
+	</test>
+	 -->
 	<listeners>
 		<listener class-name="com.javasbar.framework.testng.reporters.SmartReporter" />
-		<listener class-name="com.javasbar.framework.testng.reporters.EmailableReporter" />
 		<listener class-name="com.javasbar.framework.testng.reporters.ProgressReporter" />
+		<listener class-name="org.testng.reporters.EmailableReporter" />
 		<listener class-name="org.uncommons.reportng.HTMLReporter" />
 		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
 	</listeners> 
