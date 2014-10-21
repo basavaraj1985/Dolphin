@@ -1,0 +1,7 @@
+com.javasbar.framework.lib.xmlhandling
+com.javasbar.framework.testng.dpextension
+com.javasbar.framework.testng.reporters
+com.javasbar.smart.framework
+com.javasbar.smart.framework.lib.common
+com.javasbar.smart.framework.lib.web
+sampleTests
