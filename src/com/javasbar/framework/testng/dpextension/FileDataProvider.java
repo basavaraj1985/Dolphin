@@ -36,13 +36,13 @@ public class FileDataProvider
         return data.iterator();
     }
  
-    public static List<String> getRawLinesFromFile(Method testMethod) throws Exception
+    private static List<String> getRawLinesFromFile(Method testMethod) throws Exception
     {
         Map<String, String> arguments = DataProviderUtils.resolveDataProviderArguments(testMethod);
         return FileDataProvider.getRawLinesFromFile(arguments.get("filePath"));
     }
  
-    public static List<String> getRawLinesFromFile(String filePath) throws Exception
+    private static List<String> getRawLinesFromFile(String filePath) throws Exception
     {
         InputStream is = new FileInputStream(new File(filePath));
         List<String> lines = IOUtils.readLines(is, "UTF-8");

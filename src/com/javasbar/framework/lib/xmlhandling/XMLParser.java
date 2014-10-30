@@ -25,7 +25,7 @@ import org.xml.sax.SAXException;
 
 /**
  * 
- * @author - found on internet and improved
+ * @author - found on internet and improvised
  */
 public class XMLParser {
 
@@ -53,28 +53,69 @@ public class XMLParser {
 		xPath =  XPathFactory.newInstance().newXPath();
 	}
 	
+	/**
+	 * parse the file for later use
+	 * @param file
+	 * @return
+	 * @throws SAXException
+	 * @throws IOException
+	 */
 	public Document parse(File file) throws SAXException, IOException {
 		return builder.parse(file);
 	}
 	
+	/**
+	 * Parse the file for later use.
+	 * @param file
+	 * @return
+	 * @throws SAXException
+	 * @throws IOException
+	 */
 	public Document parse(String file) throws SAXException, IOException {
 		File f = new File(file);
 		return parse(f);
 	}
 	
+	/**
+	 * Parse the inputStream for later use.
+	 * @param is
+	 * @return
+	 * @throws SAXException
+	 * @throws IOException
+	 */
 	public Document parse(InputStream is) throws SAXException, IOException {
 		return builder.parse(is);
 	}
 	
+	/**
+	 * Parse the content pointed by url for later use.
+	 * @param url
+	 * @return
+	 * @throws IOException
+	 * @throws SAXException
+	 */
 	public Document parse(URL url) throws IOException, SAXException {
 		InputStream in = new BufferedInputStream(url.openStream());
 		return parse(in);
 	}
 	
+	/**
+	 * Returns compiled XPathExpression for given expression. 
+	 * @param expression
+	 * @return
+	 * @throws XPathExpressionException
+	 */
 	public XPathExpression getXpathExpression(String expression) throws XPathExpressionException {
 		return xPath.compile(expression);
 	}
 	
+	/**
+	 * Return all the xpath nodes as NodeList for given xpathExpression
+	 * @param parentNode
+	 * @param xpathExpression
+	 * @return
+	 * @throws XPathExpressionException
+	 */
 	public NodeList getXpathNodes(Object parentNode, String xpathExpression) throws XPathExpressionException {
 		XPathExpression xpath = getXpathExpression(xpathExpression);
 		return (NodeList) xpath.evaluate(parentNode, XPathConstants.NODESET);

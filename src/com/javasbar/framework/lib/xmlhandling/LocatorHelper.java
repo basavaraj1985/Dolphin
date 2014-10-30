@@ -19,6 +19,10 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 /**
+ * This class helps in parsing the element locators xml file and getting the locators for page elements. </br> 
+ * This class is aware of webdrivers 'By' object and provides By object for given (page+element) input parameters </br>
+ * Thus, insulating the calling code from type of expression used. 
+ * 
  * @author Basavaraj M
  *
  */
@@ -39,10 +43,13 @@ public class LocatorHelper
 	}
 	
 	/**
-	 * 
+	 * Returns the locator (xpath/css) expression represented by page, element parameters in locator file.
 	 * @param page
 	 * @param element
-	 * @param which
+	 * @param which - values allowed : css, xpath, class, null. </br>
+	 * 								   If css locator is needed, then pass css. And if not worried about the type of </br>
+	 * 								   locator, pass null.
+	 * 
 	 * @return
 	 */
 	public String getLocatorExpression(String page, String element, String which)  
@@ -104,7 +111,7 @@ public class LocatorHelper
 	}
 	
 	/**
-	 * 
+	 * Returns Webdriver's By object for given page,element key.
 	 * @param page
 	 * @param element
 	 * @return
@@ -146,9 +153,10 @@ public class LocatorHelper
 	}
 	
 	/**
-	 * 
+	 * Returns all the expected UI specs to be validated configured under element <uispec>
 	 * @param page
 	 * @param element
+	 * @return - returns the map of expected UI Specs for given element.
 	 */
 	public Map<String, String> getUISpecs(String page, String element) 
 	{
@@ -177,10 +185,14 @@ public class LocatorHelper
 		} catch (NullPointerException ne){
 			System.err.println("Configure elementLocator properly with 'name' attribute for " + page + ">" + element);
 		}
-		
 		return uiMap;
 	}
 	
+	/**
+	 * Returns locator expression for the given xpath for the elementLocator xml file.
+	 * @param xpath
+	 * @return
+	 */
 	public String getLocatorByXPath(String xpath)  
 	{
 		String result = null;

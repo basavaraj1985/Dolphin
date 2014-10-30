@@ -13,8 +13,8 @@ import com.javasbar.smart.framework.lib.common.NetworkUtil;
 public class EnvAwareRetryAnalyzer implements IRetryAnalyzer , ITestNGListener 
 {
 	private int retryCount = 0;
-	private int maxRetryCount = Integer.valueOf(System.getProperty("maxRetryCount", "3"));
-	private int retryWaitSeconds = Integer.valueOf(System.getProperty("retryWaitSeconds", "180"));
+	private int maxRetryCount ;
+	private int retryWaitSeconds;
 	
 	/**
 	 * If a testcase is failed and if baseUrl is not pingable, retry the test case.
@@ -22,6 +22,27 @@ public class EnvAwareRetryAnalyzer implements IRetryAnalyzer , ITestNGListener
 	@Override
 	public boolean retry(ITestResult testResult) 
 	{
+		String maxRetryStr = (String) testResult.getTestContext().getAttribute("maxRetryCount");
+		String maxRetryWaitSecondsStr = (String) testResult.getTestContext().getAttribute("retryWaitSeconds");
+		if ( null != maxRetryStr )
+		{
+			try {
+				maxRetryCount = Integer.valueOf(maxRetryStr);
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+				maxRetryCount = 3;
+			}
+		}
+		if ( null != maxRetryWaitSecondsStr )
+		{
+			try {
+				retryWaitSeconds = Integer.valueOf(maxRetryWaitSecondsStr);
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+				retryWaitSeconds = 180;
+			}
+		}
+		
 		System.out.println("@EnvAwareRetryAnalyzer retry");
 		if ( ! testResult.isSuccess() && ( retryCount++ < maxRetryCount ))
 		{
