@@ -161,5 +161,6 @@ TestCode is insulated from the headache. Faster to find locators, if xpath is tr
 
 12. HTML Logging - flag controlled. The test log itself has screenshots, with steps, debug info, test description.
 
+
 13. UI Spec validation is implicitly supported. Just provide expected ui specs along with locators and invoke ui spec validation. 
 
