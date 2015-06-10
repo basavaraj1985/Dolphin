@@ -175,7 +175,7 @@ public class LoggerUtil
 	 */
 	public static synchronized  void logINFO(String log)
 	{
-		String property = System.getProperty( IConstants.LOG_LEVEL);
+		String property = System.getProperty( IConstants.LOG_LEVEL, "INFO");
 		if ( null != property && ( property.contains("DEBUG") || property.contains("INFO")  )   )
 		{
 			log = escapeHtml(log);
@@ -190,7 +190,7 @@ public class LoggerUtil
 	 */
 	public static synchronized  void logINFOHighlight(String log)
 	{
-		String property = System.getProperty(IConstants.LOG_LEVEL);
+		String property = System.getProperty(IConstants.LOG_LEVEL, "INFO");
 		if ( null != property && ( property.contains("DEBUG") || property.contains("INFO")  )  )
 		{
 			if ( System.getProperty(IConstants.HTML_LOGGING,"true").equalsIgnoreCase("true") )
@@ -216,7 +216,7 @@ public class LoggerUtil
 	 */
 	public static synchronized  void logDEBUG(String log)
 	{
-		String property = System.getProperty(IConstants.LOG_LEVEL);
+		String property = System.getProperty(IConstants.LOG_LEVEL, "DEBUG");
 		if ( null != property && ( property.contains("DEBUG")  )  )
 		{
 			log = escapeHtml(log);
@@ -231,7 +231,7 @@ public class LoggerUtil
 	 */
 	public static synchronized  void logWARNING(String log)
 	{
-		String property = System.getProperty(IConstants.LOG_LEVEL);
+		String property = System.getProperty(IConstants.LOG_LEVEL, "WARNING");
 		if ( null != property && ( property.contains("DEBUG") || property.contains("INFO") || property.contains("WARNING")  )  )
 		{
 			log = escapeHtml(log);
