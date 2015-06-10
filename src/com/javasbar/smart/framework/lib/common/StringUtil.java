@@ -261,16 +261,16 @@ public class StringUtil
 	
 	/**
 	 * Returns a random generated String of length 'randLength'
-	 * @param randLength 
+	 * @param length 
 	 * @return
 	 */
-	public static String getRandomString(int randLength)
+	public static String getRandomString(int length)
 	{
 		Random r = new Random();
-		byte[] bytes = new byte[50];
+		byte[] bytes = new byte[length*20];
 		String randomString = null;
 		String result = null;
-		while ( null == randomString || null == result || ( null != result &&  result.length() < 5 ))
+		while ( null == randomString || null == result || ( null != result &&  result.length() < length ))
 		{
 			r.nextBytes(bytes);
 			try {
@@ -278,7 +278,7 @@ public class StringUtil
 			} catch (UnsupportedEncodingException e) {
 				e.printStackTrace();
 			}
-			Pattern an = Pattern.compile("[a-z]*[A-Z]*");
+			Pattern an = Pattern.compile("[a-z]*[A-Z]*[0-9]*");
 			Matcher matcher = an.matcher(randomString);
 			StringBuilder buf = new StringBuilder();
 			while ( matcher.find() )
@@ -289,7 +289,7 @@ public class StringUtil
 			}
 			result = buf.toString();
 		}
-		return result;
+		return length + result.substring(0, length - String.valueOf(length).length() - 1);
 	}
 	
 	public static void main(String[] args) 
