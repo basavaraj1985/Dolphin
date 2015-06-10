@@ -37,7 +37,7 @@ public class Util
 		Random randomGenerator;
 		try {
 			randomGenerator = new Random();
-			randomInt = randomGenerator.nextInt(6);
+			randomInt = randomGenerator.nextInt();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -50,7 +50,8 @@ public class Util
 	 * @param x
 	 * @return
 	 */
-	public static int RandomInt(int x) {
+	public static int RandomInt(int x) 
+	{
 		int randomInt = 1;
 		Random randomGenerator;
 		try {
@@ -63,13 +64,6 @@ public class Util
 		return randomInt + 1;
 	}
 	
-	public static void main(String[] args) {
-		for ( int i = 0 ; i < 50 ; i++ )
-		{
-			System.out.println( i + " : " + RandomInt(i));
-		}
-	}
-
 	/**
 	 * i milliseconds sleep
 	 * @param i
